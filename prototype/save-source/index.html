@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PROTOTYPE · Save Source</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#11131a">
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; padding: 16px; font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+         background: #11131a; color: #d8dce6; max-width: 900px; margin-inline: auto; }
+  h1 { font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: #7f8aa3; margin: 0 0 4px; }
+  .warnstrip { background: #3a2a12; border: 1px solid #6b4a15; color: #f0c274; padding: 8px 10px;
+               border-radius: 6px; margin-bottom: 16px; font-size: 12px; }
+  h2 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #7f8aa3;
+       margin: 22px 0 8px; border-bottom: 1px solid #232838; padding-bottom: 6px; }
+  button { font: inherit; background: #1d2233; color: #d8dce6; border: 1px solid #333a52;
+           border-radius: 6px; padding: 7px 11px; margin: 0 6px 6px 0; cursor: pointer; }
+  button:hover:not(:disabled) { background: #262d44; }
+  button:disabled { opacity: .4; cursor: not-allowed; }
+  .row { display: flex; gap: 12px; padding: 4px 0; border-bottom: 1px solid #181c28; }
+  .k { flex: 0 0 190px; color: #7f8aa3; }
+  .v { flex: 1; word-break: break-word; }
+  .tier-fresh { color: #7ddc9a; } .tier-aging { color: #f0c274; }
+  .tier-stale, .tier-future, .tier-unknown { color: #f08c8c; }
+  .banner { padding: 10px 12px; border-radius: 6px; margin: 14px 0; }
+  .banner.hidden { display: none; }
+  .banner.warn { background: #3a2a12; border: 1px solid #6b4a15; color: #f0c274; }
+  .banner.bad { background: #3a1a1a; border: 1px solid #6b2020; color: #f0a0a0; }
+  .ev { display: flex; gap: 10px; padding: 3px 0; font-size: 12px; }
+  .ev .t { color: #4d5468; flex: 0 0 78px; }
+  .ev .kind { flex: 0 0 130px; color: #8aa6ff; }
+  .ev-rejected .kind, .ev-share-error .kind, .ev-error .kind, .ev-dir-error .kind { color: #f08c8c; }
+  .ev-accepted .kind { color: #7ddc9a; }
+  .ev .msg { flex: 1; color: #98a0b3; }
+  label.file { display: inline-block; }
+  input[type=file] { display: none; }
+  .filebtn { display: inline-block; background: #1d2233; border: 1px solid #333a52; border-radius: 6px;
+             padding: 7px 11px; margin: 0 6px 6px 0; cursor: pointer; }
+</style>
+</head>
+<body>
+  <h1>Prototype · Save Source</h1>
+  <div class="warnstrip">
+    Throwaway prototype for <b>idleFantasy-dex #4</b>. Not the real app, no styling budget,
+    no error handling beyond what keeps it running. Everything here is disposable.
+  </div>
+
+  <div id="banner" class="banner hidden"></div>
+
+  <h2>State (re-rendered after every action)</h2>
+  <div id="state"></div>
+
+  <h2>Save Sources</h2>
+  <label class="file"><span class="filebtn">Upload a save (baseline path)</span>
+    <input type="file" id="file"></label>
+  <button id="linkdir">Link backup folder (desktop)</button>
+  <button id="rescan">Rescan folder</button>
+  <button id="wipe">Wipe cached state</button>
+
+  <h2>Simulated arrivals</h2>
+  <div id="sims"></div>
+
+  <h2>Event log</h2>
+  <div id="log"></div>
+
+  <script src="idb.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
