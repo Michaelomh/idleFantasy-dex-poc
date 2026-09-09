@@ -265,8 +265,10 @@ async function render(patch = {}) {
 }
 
 function row(k, v, tier) {
-  const cls = tier ? ` class="tier-${tier}"` : '';
-  return `<div class="row"><span class="k">${k}</span><span class="v"${cls}>${v}</span></div>`;
+  // One class attribute, not two — a second one is silently dropped by the parser,
+  // which is how the staleness colour went missing.
+  const cls = tier ? `v tier-${tier}` : 'v';
+  return `<div class="row"><span class="k">${k}</span><span class="${cls}">${v}</span></div>`;
 }
 
 function renderLog() {
@@ -344,7 +346,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // A share arrived: the SW redirected here after stashing the file.
   if (new URLSearchParams(location.search).has('shared')) {
-    history.replaceState({}, '', '/');
+    history.replaceState({}, '', location.pathname);
     const pending = await idbGet('pending', 'share');
     await idbDel('pending', 'share');
     if (!pending) {
