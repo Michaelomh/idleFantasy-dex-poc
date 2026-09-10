@@ -1,0 +1,35 @@
+# build/output
+dist
+build
+.next
+coverage
+
+# dependency/lockfiles
+node_modules
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# generated/binary — Prettier can't meaningfully format these
+*.min.js
+*.min.css
+public
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.woff
+*.woff2
+*.ico
+
+# env and local config
+.env
+.env.*
+
+# vite/ts artifacts
+*.tsbuildinfo
+.vite
+
+# editor/OS cruft
+.DS_Store
