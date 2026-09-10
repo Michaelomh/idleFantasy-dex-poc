@@ -1,18 +1,42 @@
 # idlefantasy-dex
 
 Track your completion in **[Idle Fantasy](https://github.com/tristinbaker/IdleFantasy)** —
-items, quests, and skills — and see how far every goal is: estimated time to completion,
-expected items per session, XP rates, and more.
+quests, guilds, drops, equipment, and prestige — and see how far every goal is from done.
+Projections (time to completion, items per session, XP rates) come later; see the roadmap.
 
-> **Status:** early planning. The scope and design are being charted as a decision map
-> (wayfinder). Not yet buildable. Contribution guidelines and "good first issues" will land
-> once the map's v1 scope is set.
+> **Status:** v1 spec is settled (`.scratch/v1-spec/spec.md`); the app is being built.
+> Contribution guidelines and "good first issues" land alongside it.
 
 ## Why
 
 Idle Fantasy is a deep, offline idle RPG (23 skills, 29 dungeons, 189 quests). Completionist
 players juggle a lot of "how long until X" and "what should I train next" math by hand. This
 is a companion tool to do that math from the game's own data.
+
+## What it is
+
+- A **mobile-only PWA**, offline-first — it reads your own Idle Fantasy save export, no account, no server.
+- Compares your progress against a vendored snapshot of the game's data.
+- Shows how far each completion goal is from done, measured against the whole game.
+
+## Roadmap
+
+**v1 — the Completion dashboard**
+
+- Load a save (file upload, or point it at the game's backup folder).
+- Five goals + an overall roll-up: Quests, Guilds, Raid boss drops, Armoury, Levels & Prestige.
+- Per-goal drill-down showing what's still left.
+- No projections, no simulators — just completion.
+
+**v2 — broader coverage + first projections**
+
+- More goals: Monsters, Pets, Craftables, and others.
+- Multiple save slots; user-defined goals.
+- Projections: time to completion, expected items per session, what to train next.
+
+**v3 — simulators**
+
+- Per-skill simulators and combat/dungeon simulators.
 
 ## License
 
