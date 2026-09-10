@@ -16,5 +16,21 @@ is a companion tool to do that math from the game's own data.
 
 ## License
 
-TBD — being decided (the game is GPL-3.0; the companion app's license and how it handles
-game data are open questions on the planning map).
+idleFantasy-dex is licensed under the **GNU General Public License v3.0**. See
+[LICENSE](./LICENSE).
+
+Idle Fantasy itself is GPL-3.0, and this project matches it deliberately: it removes any
+question about whether a companion app built on the game's data is a derivative work, and
+keeps everything in the same license family as the project it depends on.
+
+### Game data
+
+This repository vendors a snapshot of Idle Fantasy's static game data — the JSON files under
+`app/src/main/assets/data/` in
+[tristinbaker/IdleFantasy](https://github.com/tristinbaker/IdleFantasy) — pinned to a
+specific game version and refreshed by a checked-in sync script. That data remains the work
+of the Idle Fantasy authors and is redistributed here under GPL-3.0, the same terms it is
+published under. Vendored files are kept unmodified so they stay traceable to their source.
+
+This project is an independent companion app. It is not affiliated with or endorsed by the
+Idle Fantasy maintainers.

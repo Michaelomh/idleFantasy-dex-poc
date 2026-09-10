@@ -17,5 +17,8 @@ build/
 !.env.example
 .dev.vars
 
-# Scratch / planning
-.scratch/
+.scratch/*
+docs/*
+
+CLAUDE.md
+CONTEXT.md
